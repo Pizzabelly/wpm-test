@@ -1,0 +1,93 @@
+*{
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+#all {
+  vertical-align: top;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  margin: auto 0;
+  margin-top: 10%;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+#stats {
+  position: relative;
+  text-align: center;
+  line-height: .5%;
+  transition-property: font-size, padding-top;
+  transition-duration: 2s;
+  transition-delay: .5s;
+  font-size: 1.5em;
+}
+#wpm {
+  padding-right: 1em;
+}
+#stats.done {
+  padding-top: 3%;
+  font-size: 2em;
+}
+#wpm, #acc {
+  display: inline-block;
+}
+.current {
+  caret-color: red;
+}
+#prompt {
+  scrollbar-width: none;
+  text-align: left;
+  position: relative;
+	font-size:1.4em;
+  padding: 0.1em .5em;
+  background-color: rgba(8, 16, 24, .8);
+  height: 50ch;
+  max-height: 5em;
+  width: 50ch;
+  max-width: 52ch;
+  margin: auto;
+  word-wrap: break-all;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+b {
+  font-size: .91em;
+}
+html, body{
+    height: auto;
+    margin: auto;
+    padding: 0;
+    background-color: #eee;
+    overflow: hidden;
+}
+span,
+input {
+  position: relative;
+  margin: auto;
+	border:2px solid rgba(8,16,24,.5);
+	font-size:1.75em;
+	padding:.25em .25em .25em .25em;
+	color:rgba(8,16,24,.5);
+	border-radius:.25em;
+	background:transparent;
+	transition:all .100s;
+	
+	&:focus{
+		outline:none;
+		color:rgba(255,255,255,.75);
+		border-color:rgba(255,255,255,.75);
+	}
+	
+	&.keyup {
+		color:white;
+		border-color:white;
+		text-shadow:0 0 .125em white;
+		box-shadow:0 0 .25em white,inset 0 0 .25em white;
+	}
+}
