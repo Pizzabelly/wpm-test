@@ -9,8 +9,6 @@
 #include <locale.h>
 #include <time.h>
 
-#define PROJECT_NAME "wpm"
-
 #define MAX_WORDS     1000
 #define WORD_LENGTH   22 
 #define PATTERN_COUNT 27
