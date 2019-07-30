@@ -59,6 +59,7 @@ size_t populate_list(FILE* f, char (*list)[MAX_WORDS][WORD_LENGTH]) {
     strcpy((*list)[count], buffer);
     count++;
   }
+  free(buffer);
   return count - 1;
 }
 
