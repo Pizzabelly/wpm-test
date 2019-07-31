@@ -15,9 +15,6 @@ win: BIN = wpm.exe
 all: executable
 win: executable
 
-debug: CFLAGS += -DDEBUG -g
-debug: executable
-
 # linker flags
 #  -lncurses link ncurses for the terminal interface
 all: LDFLAGS  = -lncursesw -ltinfow

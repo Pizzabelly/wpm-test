@@ -23,21 +23,6 @@ static char* get_word(char* p);
 /* only public function */
 char* gen_sentence();
 
-typedef enum {
-  IS, THE, A,
-  COMMA,
-  NOUN, 
-  NOUN_P,
-  PRONOUN,
-  PRONOUN_P,
-  VERB,
-  ADJECTIVE,
-  ADVERB,
-  DETERMINER,
-  CONJUNCTION,
-  PREPOSITION
-} part_of_speech;
-
 static char noun_list[MAX_WORDS][WORD_LENGTH], pronoun_list[MAX_WORDS][WORD_LENGTH],\
     pronoun_p_list[MAX_WORDS][WORD_LENGTH], adjective_list[MAX_WORDS][WORD_LENGTH],\
     verb_list[MAX_WORDS][WORD_LENGTH], adverb_list[MAX_WORDS][WORD_LENGTH],\
@@ -47,7 +32,7 @@ static char noun_list[MAX_WORDS][WORD_LENGTH], pronoun_list[MAX_WORDS][WORD_LENG
 static size_t noun_count, pronoun_count, pronoun_p_count, adjective_count, verb_count,\
     adverb_count, conjunction_count, determiner_count, preposition_count, transition_count;
 
-FILE* word_patterns;
+static FILE* word_patterns;
 
 size_t populate_list(FILE* f, char (*list)[MAX_WORDS][WORD_LENGTH]) {
   int count = 0; char* buffer = malloc(WORD_LENGTH);
