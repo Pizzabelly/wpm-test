@@ -3,3 +3,7 @@ wpm
 wpm.js
 wpm.wasm
 wpm.data
+
+# markov_chain
+txt/
+gen
