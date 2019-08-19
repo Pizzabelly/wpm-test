@@ -1,3 +1,4 @@
+// this is really bad and hacked together
 var words = [];
 var input;
 var count = 0;

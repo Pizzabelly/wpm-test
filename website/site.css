@@ -1,6 +1,6 @@
 *{
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 #all {
   vertical-align: top;
@@ -11,11 +11,11 @@
   margin-top: 10%;
 }
 ::-webkit-scrollbar {
-    width: 0px;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
+  width: 0px;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
 }
 ::-webkit-scrollbar-thumb {
-    background: #FF0000;
+  background: #FF0000;
 }
 
 #stats {
@@ -60,11 +60,11 @@ b {
   font-size: .91em;
 }
 html, body{
-    height: auto;
-    margin: auto;
-    padding: 0;
-    background-color: #eee;
-    overflow: hidden;
+  height: auto;
+  margin: auto;
+  padding: 0;
+  background-color: #eee;
+  overflow: hidden;
 }
 span,
 input {
@@ -78,16 +78,16 @@ input {
 	background:transparent;
 	transition:all .100s;
 	
-	&:focus{
-		outline:none;
-		color:rgba(255,255,255,.75);
-		border-color:rgba(255,255,255,.75);
-	}
-	
-	&.keyup {
-		color:white;
-		border-color:white;
-		text-shadow:0 0 .125em white;
-		box-shadow:0 0 .25em white,inset 0 0 .25em white;
-	}
+  &:focus{
+  outline:none;
+  color:rgba(255,255,255,.75);
+  border-color:rgba(255,255,255,.75);
+  }
+
+  &.keyup {
+  color:white;
+  border-color:white;
+  text-shadow:0 0 .125em white;
+  box-shadow:0 0 .25em white,inset 0 0 .25em white;
+  }
 }
