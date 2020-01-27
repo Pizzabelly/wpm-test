@@ -1,5 +1,7 @@
 #include "../sentence_gen.c"
 
+#include "sys/time.h"
+
 #ifdef _WIN32
 #include "win/curses.h"
 #else
@@ -47,7 +49,7 @@ void init_curses() {
 
   use_default_colors();
   start_color();
-  init_pair(1, COLOR_RED, -1);
+  init_pair(1, COLOR_RED, COLOR_WHITE);
   init_pair(2, COLOR_GREEN, -1);
   init_pair(3, COLOR_BLACK, COLOR_WHITE);
 }
@@ -77,8 +79,13 @@ void draw() {
   }
 
   char wpm_text[256];
+  //sprintf(wpm_text, "%f", _time);
   sprintf(wpm_text, "%.2f", wpm);
   mvaddstr(Y_OFFSET + 4, X_OFFSET, wpm_text);
+}
+
+double calc_time(struct timeval *s, struct timeval *e) {
+  return (((e->tv_sec * 1000000) + e->tv_usec) - ((s->tv_sec * 1000000) + s->tv_usec)) / 1000000.0;
 }
   
 int main(void) {
@@ -87,13 +94,16 @@ int main(void) {
   init_curses();
 
   bool stopped = false;
-  clock_t start = clock();
+
+  struct timeval start, now;
+  gettimeofday(&start, NULL);
 
   prompt_string = malloc(1024 * 10);
   user_input = malloc(1024 * 10);
 
   int c;
   while(1) {
+    gettimeofday(&now, NULL);
     c = getch();
     switch (c) {
       case 27: 
@@ -115,15 +125,15 @@ int main(void) {
         break;
       default:
         if (stopped) continue;
-        if (current_pos == 0) start = clock();
+        if (current_pos == 0) gettimeofday(&start, NULL);
         user_input[current_pos] = c;
         user_input[current_pos + 1] = '\0';
         current_pos++;
     }
 
     if (!stopped) {
-      double time = (double)(clock() - start)/CLOCKS_PER_SEC*10.0/6.0;
-      wpm = ((double)current_pos / 5.0) / time;
+      //printf("%f\n", calc_time(&start, &now));
+      wpm = ((double)current_pos / 5.0) / (calc_time(&start, &now) / 60.0);
     }
     
     draw();

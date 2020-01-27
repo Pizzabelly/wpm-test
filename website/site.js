@@ -93,13 +93,13 @@ window.setInterval(function(){
       done = true;
       return;
     }
-    var wpm = 0;
+    var wpm = 0.0;
     var time = (now - start)/1000.0/60.0;
     var true_count = count - words[input.length - 1].length;
     if (input[0].length >= 1) {
-      var raw_wpm = (true_count / 5.0)/time;
+      var raw_wpm = (document.getElementById('input_text').value.length / 5.0)/time;
       wpm = raw_wpm*acc;
     }
-    document.getElementById('wpm').innerHTML = wpm.toFixed(2);
+    document.getElementById('wpm').innerHTML = raw_wpm.toFixed(2);
     document.getElementById('acc').innerHTML = parseInt(acc*100);
 }, 250);
